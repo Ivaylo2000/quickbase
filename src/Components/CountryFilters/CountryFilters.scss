@@ -1,0 +1,26 @@
+.country-filters {
+  border: 1px solid var(--color-border);
+  padding: 40px;
+  border-radius: 1rem;
+  .filter-controls {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+
+      .search-input {
+        grid-column: span 2;
+      }
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+
+      .search-input {
+        grid-column: span 1;
+      }
+    }
+  }
+}

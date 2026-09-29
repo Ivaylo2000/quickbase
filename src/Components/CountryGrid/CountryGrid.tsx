@@ -8,11 +8,13 @@ interface CountryGridProps {
 
 const CountryGrid = ({ countries }: CountryGridProps) => {
   return (
-    <ul className="country-grid">
-      {countries.map((country) => (
-        <CountryCard key={country.name} country={country} />
-      ))}
-    </ul>
+    <section>
+      <ul className="country-grid">
+        {countries.map((country) => (
+          <CountryCard key={country.name} country={country} />
+        ))}
+      </ul>
+    </section>
   );
 };
 

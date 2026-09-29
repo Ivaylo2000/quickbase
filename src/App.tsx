@@ -1,13 +1,19 @@
+import CountryFilters from "./Components/CountryFilters/CountryFilters";
 import CountryGrid from "./Components/CountryGrid/CountryGrid";
 import countries from "./data/countries.json";
 
 function App() {
+  const continents = [
+    ...new Set(countries.map((country) => country.continent)),
+  ];
+
+  const languages = [...new Set(countries.map((country) => country.language))];
+
   return (
     <main>
-      <h1>Test</h1>
-      <section className="countries-section">
-        <CountryGrid countries={countries} />
-      </section>
+      <CountryFilters continents={continents} languages={languages} />
+
+      <CountryGrid countries={countries} />
     </main>
   );
 }
