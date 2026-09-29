@@ -1,0 +1,38 @@
+/* =========================
+   LIGHT THEME
+   ========================= */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-background: #f7f8fa;
+  --color-surface: #ffffff;
+
+  --color-text-primary: #18181b;
+  --color-text-secondary: #52525b;
+
+  --color-border: #e4e4e7;
+
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+}
+
+/* =========================
+   DARK THEME
+   ========================= */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-background: #111318;
+  --color-surface: #1a1d24;
+
+  --color-text-primary: #f4f4f5;
+  --color-text-secondary: #a1a1aa;
+
+  --color-border: #2e323b;
+
+  --color-primary: #60a5fa;
+  --color-primary-hover: #93c5fd;
+}
