@@ -1,13 +1,12 @@
 import { Search } from "lucide-react";
 import "./SearchInput.scss";
 
-// interface SearchInputProps {
-//   value: string;
-//   onChange: (value: string) => void;
-// }
+interface SearchInputProps {
+  value: string;
+  onChange: (value: string) => void;
+}
 
-// const SearchInput = ({ value, onChange }: SearchInputProps) => {
-const SearchInput = () => {
+const SearchInput = ({ value, onChange }: SearchInputProps) => {
   return (
     <div className="search-input">
       <Search aria-hidden="true" />
@@ -17,8 +16,8 @@ const SearchInput = () => {
         name="country-search"
         type="search"
         placeholder="Search countries..."
-        // value={value}
-        // onChange={(event) => onChange(event.target.value)}
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
       />
     </div>
   );

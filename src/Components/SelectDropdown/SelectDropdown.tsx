@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import "./SelectDropdown.scss";
@@ -6,17 +7,29 @@ interface SelectDropdownProps {
   id: string;
   label: string;
   options: string[];
+  selectedOptions: string[];
   Icon: LucideIcon;
+  onOptionToggle: (option: string) => void;
 }
 
-const SelectDropdown = ({ id, label, options, Icon }: SelectDropdownProps) => {
+const SelectDropdown = ({
+  id,
+  label,
+  options,
+  selectedOptions,
+  Icon,
+  onOptionToggle,
+}: SelectDropdownProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="dropdown-container open">
+    <div className={`dropdown-container${isOpen ? " open" : ""}`}>
       <button
         className="select"
         type="button"
-        aria-expanded="true"
+        aria-expanded={isOpen}
         aria-controls={id}
+        onClick={() => setIsOpen((currentState) => !currentState)}
       >
         <Icon aria-hidden="true" />
         <span>{label}</span>
@@ -27,7 +40,11 @@ const SelectDropdown = ({ id, label, options, Icon }: SelectDropdownProps) => {
         {options.map((option) => (
           <li key={option}>
             <label>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={selectedOptions.includes(option)}
+                onChange={() => onOptionToggle(option)}
+              />
               <span>{option}</span>
             </label>
           </li>
