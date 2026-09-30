@@ -3,6 +3,7 @@ import CountryFilters from "./Components/CountryFilters/CountryFilters";
 import CountryGrid from "./Components/CountryGrid/CountryGrid";
 import Loader from "./Components/Loader/Loader";
 import type { ICountry } from "./Interfaces/ICountry";
+import ThemePicker from "./Components/ThemePicker/ThemePicker";
 
 const LOADING_DELAY_MS = 2000;
 
@@ -103,6 +104,8 @@ function App() {
 
   return (
     <main>
+      <ThemePicker />
+
       {(isLoading || error) && (
         <section>
           {isLoading && <Loader />}
