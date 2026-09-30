@@ -1,10 +1,36 @@
 .country-card {
+  --continent-accent: var(--color-primary);
+
   display: flex;
   flex-direction: column;
   border: 1px solid var(--color-border);
   border-radius: 1rem;
   overflow: hidden;
   background-color: var(--color-surface);
+
+  &[data-continent="Africa"] {
+    --continent-accent: var(--color-continent-africa);
+  }
+
+  &[data-continent="Asia"] {
+    --continent-accent: var(--color-continent-asia);
+  }
+
+  &[data-continent="Europe"] {
+    --continent-accent: var(--color-continent-europe);
+  }
+
+  &[data-continent="North America"] {
+    --continent-accent: var(--color-continent-north-america);
+  }
+
+  &[data-continent="South America"] {
+    --continent-accent: var(--color-continent-south-america);
+  }
+
+  &[data-continent="Oceania"] {
+    --continent-accent: var(--color-continent-oceania);
+  }
 
   img {
     border-radius: 1rem 1rem 0 0;
@@ -20,12 +46,12 @@
     padding: 1rem;
 
     .badge {
-      background: var(--color-background);
+      background: var(--continent-accent);
       width: max-content;
       padding: 0.4rem 1rem;
       border-radius: 500px;
       span {
-        color: var(--color-text-primary);
+        color: var(--color-continent-text);
         font-weight: 700;
       }
     }

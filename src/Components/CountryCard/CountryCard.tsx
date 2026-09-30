@@ -1,8 +1,9 @@
 import { Landmark, Languages, UserGroup, Map } from "lucide-react";
 import type { ICountry } from "../../Interfaces/ICountry";
-import "./CoutryCard.scss";
+import "./CountryCard.scss";
 
 const CountryCard = ({
+  priority,
   country: {
     name,
     image,
@@ -15,6 +16,7 @@ const CountryCard = ({
   },
 }: {
   country: ICountry;
+  priority: boolean;
 }) => {
   const countryDetails = [
     {
@@ -38,9 +40,15 @@ const CountryCard = ({
       Icon: Map,
     },
   ];
+
   return (
-    <li key={name} className="country-card">
-      <img src={image} alt={`Flag of ${name}`} loading="lazy" />
+    <li className="country-card" data-continent={continent}>
+      <img
+        src={image}
+        alt={`Flag of ${name}`}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
+      />
       <div className="content">
         <h2>{name}</h2>
 
