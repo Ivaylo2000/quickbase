@@ -57,7 +57,7 @@ function App() {
           throw new Error("Invalid countries data");
         }
 
-        setCountries((data as ICountry[]).slice(0, 12));
+        setCountries(data as ICountry[]);
       } catch (requestError: unknown) {
         if (
           requestError instanceof DOMException &&
@@ -85,22 +85,23 @@ function App() {
 
   const languages = [...new Set(countries.map((country) => country.language))];
 
-  const filteredCountries = countries.filter((country) => {
-    const matchesName = country.name
-      .toLowerCase()
-      .includes(countryName.toLowerCase());
+  const filteredCountries = countries
+    .filter((country) => {
+      const matchesName = country.name
+        .toLowerCase()
+        .includes(countryName.toLowerCase());
 
-    const matchesContinent =
-      selectedContinents.length === 0 ||
-      selectedContinents.includes(country.continent);
+      const matchesContinent =
+        selectedContinents.length === 0 ||
+        selectedContinents.includes(country.continent);
 
-    const matchesLanguage =
-      selectedLanguages.length === 0 ||
-      selectedLanguages.includes(country.language);
+      const matchesLanguage =
+        selectedLanguages.length === 0 ||
+        selectedLanguages.includes(country.language);
 
-    return matchesName && matchesContinent && matchesLanguage;
-  });
-  // .slice(0, 12);
+      return matchesName && matchesContinent && matchesLanguage;
+    })
+    .slice(0, 12);
 
   return (
     <main>
@@ -113,7 +114,7 @@ function App() {
           {error && <h1 role="alert">{error}</h1>}
         </section>
       )}
-
+      <h1>Countries</h1>
       {!isLoading && !error && (
         <>
           <CountryFilters

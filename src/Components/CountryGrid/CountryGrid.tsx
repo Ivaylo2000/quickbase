@@ -8,11 +8,10 @@ interface CountryGridProps {
 
 const CountryGrid = ({ countries }: CountryGridProps) => {
   return (
-    <section>
-      <h1>Countries</h1>
+    <section className="countries-section">
       {countries.length === 0 ? (
         <div className="no-results-card">
-          <h1>No Results</h1>
+          <h2>No Results</h2>
         </div>
       ) : (
         <ul className="country-grid">

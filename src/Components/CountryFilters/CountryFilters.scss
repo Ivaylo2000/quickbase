@@ -1,6 +1,9 @@
 .country-filters {
   border: 1px solid var(--color-border);
-  padding: 40px;
+  padding: 40px 20px;
+  @media (min-width: 576px) {
+    padding: 40px;
+  }
   border-radius: 1rem;
   .filter-controls {
     display: grid;

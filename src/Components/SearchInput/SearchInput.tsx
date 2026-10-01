@@ -17,6 +17,7 @@ const SearchInput = ({ value, onChange }: SearchInputProps) => {
         type="search"
         placeholder="Search countries..."
         value={value}
+        aria-label="Search countries by name"
         onChange={(event) => onChange(event.target.value)}
       />
     </div>
